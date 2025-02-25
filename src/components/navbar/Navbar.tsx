@@ -6,14 +6,14 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false); // Controlar quando o menu hambúrguer aparece (mobile)
 
   return (
-    <header className="relative bg-slate-800 text-white w-full">
+    <header className="relative bg-slate-300 text-gray-800 w-full">
 
       {/* Navbar Responsiva (Mobile) - Exibir em telas de 1024px ou menos */}
       <div className="container mx-auto px-4 w-full flex items-center justify-between pt-6 pb-2 xl:hidden">
 
         {/* Ícone do menu hambúrguer (somente no Mobile) */}
         <button onClick={() => setMenuOpen(!menuOpen)}>
-          <div className="border border-gray-200 rounded-sm p-1">
+          <div className="border-2 border-gray-800 rounded-sm p-1">
             <List size={29} />
           </div>
         </button>
@@ -23,17 +23,14 @@ function Navbar() {
           <Link to='/home'>
             <img
               className="h-[4vh]" // Define a altura da logo como 5% da altura da tela.
-              src="https://ik.imagekit.io/alanbrunoscience/Games%20Stores/logolg.png?updatedAt=1739995098669"
-              alt="GameVerse Logo"
+              src="https://ik.imagekit.io/alanbrunoscience/React%20Drugstore/Logo.png?updatedAt=1740485799878"
+              alt="FarmaVida Logo"
             />
           </Link>
-          <p>
-            <Link to='/home' className="font-bold text-2xl mx-3">GameVerse</Link>
-          </p>
         </div>
 
         {/* Ícone do Carrinho (somente no Mobile) */}
-        <div className="border border-gray-200 rounded-sm p-1">
+        <div className="border-2 border-gray-800 rounded-sm p-1">
           <ShoppingCart size={29} />
         </div>
       </div>
@@ -44,7 +41,7 @@ function Navbar() {
           <input
             type="text"
             placeholder="O que deseja buscar?"
-            className="w-full text-gray-800 py-2 px-3 text-sm"
+            className="w-full text-gray-800 py-2 px-3 text-base"
           />
           <MagnifyingGlass size={28} className="mx-2 text-gray-600" />
         </div>
@@ -60,14 +57,20 @@ function Navbar() {
       */}
 
       {menuOpen && (
-        <nav className="container mx-auto px-2 absolute top-[70px] left-0 w-5/6 bg-slate-900 text-white py-2 xl:hidden">
+        <nav className="container mx-auto px-2 absolute top-[70px] left-0 w-5/6 bg-slate-700 text-white py-2 xl:hidden">
           <ul className="flex flex-col items-start px-4">
-            <li className="w-full py-3 border-b border-gray-400">Login</li>
-            <li className="w-full py-3 border-b border-gray-400">Produtos</li>
             <li className="w-full py-3 border-b border-gray-400">
-              <Link to='/categorias' className='hover:underline'>Categorias</Link>
+              <Link to='/' className='hover:underline hover:text-gray-400 cursor-pointer'>Login</Link>
             </li>
-            <li className="w-full py-3">Cadastrar Categoria</li>
+            <li className="w-full py-3 border-b border-gray-400">
+              <Link to='/produtos' className='hover:underline hover:text-gray-400 cursor-pointer'>Produtos</Link>
+            </li>
+            <li className="w-full py-3 border-b border-gray-400">
+              <Link to='/categorias' className='hover:underline hover:text-gray-400 cursor-pointer'>Categorias</Link>
+            </li>
+            <li className="w-full py-3">
+              <Link to='/cadastrarcategoria' className='hover:underline hover:text-gray-400 cursor-pointer'>Cadastrar Categoria</Link>
+            </li>
           </ul>
         </nav>
       )}
@@ -84,12 +87,9 @@ function Navbar() {
           <Link to='/home'>
             <img
               className="h-[6vh]"
-              src="https://ik.imagekit.io/alanbrunoscience/Games%20Stores/logolg.png?updatedAt=1739995098669"
-              alt="GameVerse Logo"
+              src="https://ik.imagekit.io/alanbrunoscience/React%20Drugstore/Logo.png?updatedAt=1740485799878"
+              alt="FarmaVida Logo"
             />
-          </Link>
-          <Link to='/home'>
-            <p className="font-bold text-3xl mx-3">GameVerse</p>
           </Link>
         </div>
 
@@ -98,7 +98,7 @@ function Navbar() {
           <input
             type="text"
             placeholder="O que deseja buscar?"
-            className="w-full text-gray-800 py-2 px-3 text-sm"
+            className="w-full text-gray-800 py-2 px-3 text-base"
           />
           <MagnifyingGlass size={28} className="mx-2 text-gray-600" />
         </div>
@@ -106,11 +106,15 @@ function Navbar() {
         {/* Opções de Navegação */}
         <nav>
           <ul className="flex gap-6 text-lg">
-            <li className="hover:text-gray-400 cursor-pointer">Produtos</li>
-            <li className="hover:text-gray-400 cursor-pointer">
+            <li className="hover:text-gray-600 cursor-pointer">
+              <Link to='/produtos' className='hover:underline'>Produtos</Link>
+            </li>
+            <li className="hover:text-gray-600 cursor-pointer">
               <Link to='/categorias' className='hover:underline'>Categorias</Link>
             </li>
-            <li className="hover:text-gray-400 cursor-pointer">Cadastrar Categoria</li>
+            <li className="hover:text-gray-600 cursor-pointer">
+              <Link to='/cadastrarcategoria' className='hover:underline'>Cadastrar Categoria</Link>
+            </li>
           </ul>
         </nav>
 
